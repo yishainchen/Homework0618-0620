@@ -11,7 +11,7 @@
 @interface IntroViewController ()
 {
     int changeNum;
-   
+    int groupNum;
 }
 @end
 
@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     changeNum = 0;
-
+    groupNum = 0;
     
     // Do any additional setup after loading the view.
 //    arr1 = @[@1,@2,@3];
@@ -45,7 +45,7 @@
     Member1 = @{@"Name":@"Eric",@"Image":[UIImage imageNamed:@"eric"],@"text":@"時任中時財經記者，目前正積極學習程式語言，朝程式設計師之路邁進。"};
     Member2 = @{@"Name":@"Abby Hsu",@"Image":[UIImage imageNamed:@"Abby-Hsu"],@"text":@"渴望突破體制內教育的大三生，在自我探索的過程中夾雜著迷惘與孤單，靠著網路的學習資源、媒體、各式專業書籍，逐漸理出自己的未來規劃。"};
     Member3 = @{@"Name":@"Kung",@"Image":[UIImage imageNamed:@"Kung"],@"text":@"台大獸醫研究所畢業，從台北到南部從事大動物獸醫師的工作，來到 ALPHA Camp 學習一顆靈活的行銷頭腦，期待成為改變產業的橋樑。"};
-    
+
     
     
     arr1 = @[intro1, intro2, intro3,intro4];
@@ -54,7 +54,8 @@
     
     arr3 = @[Member1, Member2, Member3];
     
-    [self loadData:intro1];
+    Arrcount = @[arr1,arr2,arr3];
+    [self loadData:0 withGroup:groupNum];
     
     
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
@@ -73,122 +74,43 @@
 - (void)handleSwipe:(UISwipeGestureRecognizer *)swipe {
     
     if (swipe.direction == UISwipeGestureRecognizerDirectionLeft) {
-        
-        NSLog(@"Left Swipe");
-        
-        if ((changeNum >= 0) && (changeNum < 4)) {
-            changeNum++;
-            if (changeNum == 4) {
-                changeNum = 0;
-            }
-            [self loadData:arr1[changeNum] ];
-        }
-        else if ((changeNum >= 4) && (changeNum <7 )){
-            changeNum++;
-            if (changeNum == 7) {
-                changeNum = 4;
-            }
-            [self loadData:arr2[changeNum-4] ];
-        }
-        else if ((changeNum >= 7) && (changeNum < 10 )){
-            changeNum++;
-            if (changeNum == 10) {
-                changeNum = 7;
-            }
-            [self loadData:arr3[changeNum-7] ];
-        }
-
-      
+        changeNum++;
+        if(changeNum == [Arrcount[groupNum] count])
+            changeNum = 0;
+          [self loadData:changeNum withGroup:groupNum];
     }
     
     if (swipe.direction == UISwipeGestureRecognizerDirectionRight) {
         NSLog(@"Right Swipe");
-        
-        if ((changeNum >= 0) && (changeNum < 4)) {
-            if (changeNum == 0) {
-                changeNum = 4;
-            }
-            changeNum--;
-            [self loadData:arr1[changeNum] ];
-        }
-        if ((changeNum >= 4) && (changeNum < 7)) {
-            if (changeNum == 4) {
-                changeNum = 7;
-            }
-            changeNum--;
-            [self loadData:arr2[changeNum-4] ];
-        }
-        if ((changeNum >= 7) && (changeNum < 10)) {
-            if (changeNum == 7) {
-                changeNum = 10;
-            }
-            changeNum--;
-            [self loadData:arr3[changeNum-7] ];
-        }
-        
+        if(changeNum == 0)
+            changeNum = [Arrcount[groupNum] count];
+        changeNum--;
+          [self loadData:changeNum withGroup:groupNum];
     }
     
 }
-
--(void)loadData:(NSDictionary *)dic {
-    label1.text = [dic valueForKey:@"Name"];
-    eric.text = [dic valueForKey:@"text"];
-    view1.image = [dic valueForKey:@"Image"];
+-(void)loadData:(int)changeNumber withGroup:(int)groupNumber{
+    label1.text = Arrcount[groupNum][changeNum][@"Name"];
+    eric.text = Arrcount[groupNum][changeNum][@"text"];
+    view1.image = Arrcount[groupNum][changeNum][@"Image"];
 }
 
 -(IBAction)buttonclicked:(id)sender{
+    changeNum++;
+    if(changeNum == [Arrcount[groupNum] count])
+        changeNum = 0;
     
-    if ((changeNum >= 0) && (changeNum < 4)) {
-        changeNum++;
-        if (changeNum == 4) {
-            changeNum = 0;
-        }
-        [self loadData:arr1[changeNum] ];
-    }
-    else if ((changeNum >= 4) && (changeNum <7 )){
-        changeNum++;
-        if (changeNum == 7) {
-            changeNum = 4;
-        }
-        [self loadData:arr2[changeNum-4] ];
-    }
-    else if ((changeNum >= 7) && (changeNum < 10 )){
-        changeNum++;
-        if (changeNum == 10) {
-            changeNum = 7;
-        }
-          [self loadData:arr3[changeNum-7] ];
-    }
+[self loadData:changeNum withGroup:groupNum];
 }
-
-    
-
-
 - (IBAction)clicked:(id)sender{
     
-    if ((changeNum >= 0) && (changeNum < 4)) {
-        if (changeNum == 0) {
-            changeNum = 4;
-        }
-        changeNum--;
-        [self loadData:arr1[changeNum] ];
-    }
-    if ((changeNum >= 4) && (changeNum < 7)) {
-        if (changeNum == 4) {
-            changeNum = 7;
-        }
-        changeNum--;
-        [self loadData:arr2[changeNum-4] ];
-    }
-    if ((changeNum >= 7) && (changeNum < 10)) {
-        if (changeNum == 7) {
-            changeNum = 10;
-        }
-        changeNum--;
-        [self loadData:arr3[changeNum-7] ];
-    }
     
-}
+    if(changeNum == 0)
+        changeNum = [Arrcount[groupNum] count];
+    changeNum--;
+      
+  [self loadData:changeNum withGroup:groupNum];
+   }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -211,17 +133,16 @@
     UISegmentedControl *segmentedControl = sender;
     
     if (segmentedControl.selectedSegmentIndex == 0) {
-        changeNum = 0;
-    
-        [self loadData:arr1[changeNum]];
+        groupNum = 0;
+        [self loadData:changeNum withGroup:groupNum];
     }
     else if(segmentedControl.selectedSegmentIndex == 1) {
-        changeNum = 4;
-        [self loadData:arr2[changeNum-4]];
+        groupNum = 1;
+        [self loadData:changeNum withGroup:groupNum];
     }
     else if(segmentedControl.selectedSegmentIndex == 2) {
-        changeNum = 7;
-        [self loadData:arr3[changeNum-7]];
+        groupNum =2;
+        [self loadData:changeNum withGroup:groupNum];
     }
         
 }

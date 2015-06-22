@@ -7,7 +7,7 @@
 //
 
 #import "NextViewController.h"
-#import "ThirdViewController.h"
+#import "TabViewController.h"
 
 @interface NextViewController ()
 
@@ -26,33 +26,35 @@
 }
 
 - (IBAction)showUserName:(id)sender
-{
+{  if ([self.userMail.text isEqualToString:self.Eric ] && [self.userPassword.text isEqualToString:self.PASSWORD ]) {
     NSLog(@"userMail:%@", self.userMail.text);
-}
+    TabViewController *tabView = [self.storyboard instantiateViewControllerWithIdentifier:@"TabView"];
+    [self presentViewController:tabView animated:YES completion:nil];}
+   
+else {
+    NSLog(@"Wrong Mail");
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Hey" message:@"Wrong Password" preferredStyle:UIAlertControllerStyleAlert];
+    [self presentViewController:alert animated:YES completion:nil];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertViewStyleDefault handler:^(UIAlertAction *action) {
+        [alert dismissViewControllerAnimated:YES completion:nil];
+        
+    }];
+    [alert addAction:cancel];
 
+}
+}
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
     NSLog(@"gestureRecognizerShouldBegin:");
     return YES;
 }
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    if ([self.userMail.text isEqualToString:self.Eric ] && [self.userPassword.text isEqualToString:self.PASSWORD ]) {
-        return YES;
-    }
-    else {
-        NSLog(@"Wrong Mail");
-        return NO;
-    }
+
+- (void) View:(UIViewController *)View didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    TabViewController *tabView = [self.storyboard instantiateViewControllerWithIdentifier:@"TabView"];
+    [self presentViewController:tabView animated:YES completion:nil];
 }
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSLog(@"Prepare to Push");
-    ThirdViewController *ThirdVC = segue.destinationViewController;
-    ThirdVC.testMail = self.userMail.text;
-
-}
-
 
 - (void)hideKeyboard {
     [self.view endEditing:YES];

@@ -2,7 +2,7 @@
 //  TableViewController.m
 //  AlphaCamp
 //
-//  Created by yishain on 6/16/15.
+//  Created by yishain on 6/21/15.
 //  Copyright (c) 2015 yishain. All rights reserved.
 //
 
@@ -15,8 +15,8 @@
 @implementation TableViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-
+        [super viewDidLoad];
+        
         arr123 = [[NSArray alloc] initWithObjects:@"week1",@"week2",@"week3", nil];
         
         
@@ -35,7 +35,7 @@
 #pragma mark - Table view data source
     
     - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+        
         // Return the number of sections.
         return 1;
     }
@@ -64,10 +64,13 @@
     - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
         NSLog(@"%ld",(long)indexPath.row);
-        DetailViewController *detailview = [self.storyboard instantiateViewControllerWithIdentifier:@"Detail"];
+        DetailTableViewController *detailview = [self.storyboard instantiateViewControllerWithIdentifier:@"Detail"];
         [self.navigationController pushViewController:detailview animated:YES];
-
+        
     }
+
+
+
 
     /*
      // Override to support conditional editing of the table view.

@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface IntroViewController : ViewController
+@interface IntroViewController : UIViewController
 {
     NSDictionary *intro1;
     NSDictionary *intro2;

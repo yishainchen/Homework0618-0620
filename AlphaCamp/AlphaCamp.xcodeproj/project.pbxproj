@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65AA1A6B0003A11896478583 /* libPods-AlphaCamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70620D0D63403812C1A871BD /* libPods-AlphaCamp.a */; };
 		8416E5881B30059B00399C41 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416E5871B30059B00399C41 /* IntroViewController.m */; };
 		8416E58E1B30435700399C41 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416E58D1B30435700399C41 /* TableViewController.m */; };
 		844A9F4F1B38138500BA612D /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A9F4E1B38138500BA612D /* TabViewController.m */; };
@@ -23,7 +24,6 @@
 		8478F9971B2C2BF6008FA182 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8478F9951B2C2BF6008FA182 /* Main.storyboard */; };
 		8479E6661B29DEEE00679F09 /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8479E6651B29DEEE00679F09 /* NextViewController.m */; };
 		84ADFD1B1B36D69600649E7C /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFD1A1B36D69600649E7C /* DetailTableViewController.m */; };
-		84E4F8C21B29EBF400291A7A /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4F8C11B29EBF400291A7A /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,12 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		52DB2F03E6B54346CF37C4AA /* Pods-AlphaCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlphaCamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlphaCamp/Pods-AlphaCamp.debug.xcconfig"; sourceTree = "<group>"; };
+		70620D0D63403812C1A871BD /* libPods-AlphaCamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlphaCamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8416E5861B30059B00399C41 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroViewController.h; path = ../IntroViewController.h; sourceTree = "<group>"; };
 		8416E5871B30059B00399C41 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntroViewController.m; path = ../IntroViewController.m; sourceTree = "<group>"; };
 		8416E58C1B30435700399C41 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = ../TableViewController.h; sourceTree = "<group>"; };
 		8416E58D1B30435700399C41 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = ../TableViewController.m; sourceTree = "<group>"; };
-		844A9F4D1B38138500BA612D /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
-		844A9F4E1B38138500BA612D /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		844A9F4D1B38138500BA612D /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabViewController.h; path = ../TabViewController.h; sourceTree = "<group>"; };
+		844A9F4E1B38138500BA612D /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabViewController.m; path = ../TabViewController.m; sourceTree = "<group>"; };
 		847754191B21B18500426283 /* AlphaCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlphaCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8477541D1B21B18500426283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8477541E1B21B18500426283 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,10 +67,9 @@
 		8478F9961B2C2BF6008FA182 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8479E6641B29DEEE00679F09 /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NextViewController.h; path = ../NextViewController.h; sourceTree = "<group>"; };
 		8479E6651B29DEEE00679F09 /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NextViewController.m; path = ../NextViewController.m; sourceTree = "<group>"; };
-		84ADFD191B36D69600649E7C /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
-		84ADFD1A1B36D69600649E7C /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
-		84E4F8C01B29EBF400291A7A /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdViewController.h; path = ../ThirdViewController.h; sourceTree = "<group>"; };
-		84E4F8C11B29EBF400291A7A /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdViewController.m; path = ../ThirdViewController.m; sourceTree = "<group>"; };
+		84ADFD191B36D69600649E7C /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailTableViewController.h; path = ../DetailTableViewController.h; sourceTree = "<group>"; };
+		84ADFD1A1B36D69600649E7C /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailTableViewController.m; path = ../DetailTableViewController.m; sourceTree = "<group>"; };
+		95AEBD39DD18FDA2A7358CE0 /* Pods-AlphaCamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlphaCamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlphaCamp/Pods-AlphaCamp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65AA1A6B0003A11896478583 /* libPods-AlphaCamp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,17 +91,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4FF8473FDD293FA25B2F8B7E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				52DB2F03E6B54346CF37C4AA /* Pods-AlphaCamp.debug.xcconfig */,
+				95AEBD39DD18FDA2A7358CE0 /* Pods-AlphaCamp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7C22629AECEE76B6B764BD47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70620D0D63403812C1A871BD /* libPods-AlphaCamp.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		847754101B21B18500426283 = {
 			isa = PBXGroup;
 			children = (
-				844A9F4D1B38138500BA612D /* TabViewController.h */,
-				844A9F4E1B38138500BA612D /* TabViewController.m */,
-				84ADFD191B36D69600649E7C /* DetailTableViewController.h */,
-				84ADFD1A1B36D69600649E7C /* DetailTableViewController.m */,
 				8478F98E1B2C0E3E008FA182 /* Code Group */,
 				8477541B1B21B18500426283 /* AlphaCamp */,
 				847754381B21B18500426283 /* AlphaCampTests */,
 				8477541A1B21B18500426283 /* Products */,
+				4FF8473FDD293FA25B2F8B7E /* Pods */,
+				7C22629AECEE76B6B764BD47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +132,8 @@
 		8477541B1B21B18500426283 /* AlphaCamp */ = {
 			isa = PBXGroup;
 			children = (
+				844A9F4D1B38138500BA612D /* TabViewController.h */,
+				844A9F4E1B38138500BA612D /* TabViewController.m */,
 				847754201B21B18500426283 /* AppDelegate.h */,
 				847754211B21B18500426283 /* AppDelegate.m */,
 				847754261B21B18500426283 /* ViewController.h */,
@@ -125,6 +144,8 @@
 				8416E5871B30059B00399C41 /* IntroViewController.m */,
 				8416E58C1B30435700399C41 /* TableViewController.h */,
 				8416E58D1B30435700399C41 /* TableViewController.m */,
+				84ADFD191B36D69600649E7C /* DetailTableViewController.h */,
+				84ADFD1A1B36D69600649E7C /* DetailTableViewController.m */,
 				8478F9951B2C2BF6008FA182 /* Main.storyboard */,
 				8477542C1B21B18500426283 /* Images.xcassets */,
 				8477542E1B21B18500426283 /* LaunchScreen.xib */,
@@ -137,8 +158,6 @@
 		8477541C1B21B18500426283 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84E4F8C01B29EBF400291A7A /* ThirdViewController.h */,
-				84E4F8C11B29EBF400291A7A /* ThirdViewController.m */,
 				8477541D1B21B18500426283 /* Info.plist */,
 				8477541E1B21B18500426283 /* main.m */,
 			);
@@ -182,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8477543F1B21B18500426283 /* Build configuration list for PBXNativeTarget "AlphaCamp" */;
 			buildPhases = (
+				364ED26E5411F8B672401A44 /* Check Pods Manifest.lock */,
 				847754151B21B18500426283 /* Sources */,
 				847754161B21B18500426283 /* Frameworks */,
 				847754171B21B18500426283 /* Resources */,
+				51E9AC3EFBCC5F7ADEA03AAF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,6 +292,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		364ED26E5411F8B672401A44 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		51E9AC3EFBCC5F7ADEA03AAF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlphaCamp/Pods-AlphaCamp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		847754151B21B18500426283 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -280,7 +334,6 @@
 				8416E58E1B30435700399C41 /* TableViewController.m in Sources */,
 				8479E6661B29DEEE00679F09 /* NextViewController.m in Sources */,
 				847754221B21B18500426283 /* AppDelegate.m in Sources */,
-				84E4F8C21B29EBF400291A7A /* ThirdViewController.m in Sources */,
 				847754251B21B18500426283 /* AlphaCamp.xcdatamodeld in Sources */,
 				844A9F4F1B38138500BA612D /* TabViewController.m in Sources */,
 				8478F9911B2C0E63008FA182 /* CodeNextViewController.m in Sources */,
@@ -412,6 +465,7 @@
 		};
 		847754401B21B18500426283 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52DB2F03E6B54346CF37C4AA /* Pods-AlphaCamp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -423,6 +477,7 @@
 		};
 		847754411B21B18500426283 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95AEBD39DD18FDA2A7358CE0 /* Pods-AlphaCamp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

@@ -7,7 +7,7 @@
 //
 
 #import "TableViewController.h"
-
+#import "DetailTableViewController.h"
 @interface TableViewController ()
 
 @end
@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
         [super viewDidLoad];
         
-        arr123 = [[NSArray alloc] initWithObjects:@"week1",@"week2",@"week3", nil];
+        arr123 = [[NSArray alloc] initWithObjects:@"Pre-study Course", @"Week 1", @"Week 2", @"Week 3", @"Miscellaneout Topics", @"Week 4", nil];
         
         
         // Uncomment the following line to preserve selection between presentations.
@@ -25,6 +25,7 @@
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     
     }
     
     - (void)didReceiveMemoryWarning {
@@ -41,7 +42,7 @@
     }
     
     - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return 3;
+        return 6;
     }
     
     
@@ -63,10 +64,10 @@
     }
     - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
-        NSLog(@"%ld",(long)indexPath.row);
         DetailTableViewController *detailview = [self.storyboard instantiateViewControllerWithIdentifier:@"Detail"];
+        detailview.Num = indexPath.row;
         [self.navigationController pushViewController:detailview animated:YES];
-        
+        NSLog(@"%ld",(long)indexPath.row);
     }
 
 

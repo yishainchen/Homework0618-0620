@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "NextViewController.h"
+#import <AFNetworking.h>
 @interface ViewController ()
 
 @end
@@ -16,6 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIActivityIndicatorView *indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicatorView.center = self.view.center;
+    [self.view addSubview:indicatorView];
+    [indicatorView startAnimating];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     // Do any additional setup after loading the view, typically from a nib.
 }
 

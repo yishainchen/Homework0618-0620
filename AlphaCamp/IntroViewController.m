@@ -26,7 +26,8 @@
 //    arr1 = @[@1,@2,@3];
     
     intro1 = @{@"Name":@"Bernard",@"Image":[UIImage imageNamed:@"bernard"],@"text":@"ALPHA Camp 創辦人。TMI 駐場創業家，曾任 Yahoo！亞太區廣告業務總監。美國MIT大學創業論壇mentor。"};
-  
+    view1.layer.cornerRadius = 10;  // imageView長度÷2
+    view1.clipsToBounds = YES;
     intro2 = @{@"Name":@"Tim",@"Image":[UIImage imageNamed:@"circle2"],@"text":@"清大物理系唸完換台大國企所，熱愛棒球，喜歡喝咖啡聊是非，最喜歡的一句話是：人生就像騎腳踏車，為保持平衡，必須不斷前進。"};
    
     intro3 = @{@"Name":@"Ariel",@"Image":[UIImage imageNamed:@"Untitled"],@"text":@"政大哲學系畢業，在中國大陸闖蕩三年，認為教育就是從人出發的一種用心交流，希望回歸教育，凝聚最真摯的正向能量。"};

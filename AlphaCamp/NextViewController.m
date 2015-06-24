@@ -18,8 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.Eric = @"eric";
-    self.PASSWORD =  @"12345";
+    self.Eric = @"";
+    self.PASSWORD =  @"";
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [gestureRecognizer setDelegate:self];
     [self.view addGestureRecognizer:gestureRecognizer];

@@ -11,8 +11,9 @@
 @interface DetailTableViewController : UITableViewController
 
 {
-    NSArray *arrDetail;
-    NSArray *arrpress;
+//    NSArray *arrDetail;
+//    NSArray *arrpress;
+   
 }
 @property int Num;
 @end

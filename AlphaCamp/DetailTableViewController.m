@@ -18,32 +18,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
-    arrDetail = @[ @[@"TreeHouse(iOS)"],
-                   @[@"Software Develope Life Cycle",@"Software System Architure",@"User Story And Wireframe"],
-                   @[@"Objective-C Basic", @"Objective-C Basic II", @"Objective-C Basic III",@"iOS UI Element Part I", @"iOS UI Element Part II &  AutoLayout Part I"],
-                   @[@"Objective C-Class/Object",@"AutoLayout Part II",@"Property & Delegate"],
-                   @[@"ViewController life & ARC",@"UITableView",@"Supplementation of MVC"],
-                   @[@"資料儲存"]];
-    
-    
-    arrpress= [[NSArray alloc] initWithArray:arrDetail[self.Num]];
+    //寫死的資料
+//    arrDetail = @[ @[@"TreeHouse(iOS)"],
+//                   @[@"Software Develope Life Cycle",@"Software System Architure",@"User Story And Wireframe"],
+//                   @[@"Objective-C Basic", @"Objective-C Basic II", @"Objective-C Basic III",@"iOS UI Element Part I", @"iOS UI Element Part II &  AutoLayout Part I"],
+//                   @[@"Objective C-Class/Object",@"AutoLayout Part II",@"Property & Delegate"],
+//                   @[@"ViewController life & ARC",@"UITableView",@"Supplementation of MVC"],
+//                   @[@"資料儲存"]];
+//    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(loadCourses) forControlEvents:UIControlEventValueChanged];
+//    arrpress= [[NSArray alloc] initWithArray:arrDetail[self.Num]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    [self loadCourses];
 
-}
+} 
 
 -(void) loadCourses {
     AFHTTPRequestOperationManager *manager =[AFHTTPRequestOperationManager manager];
-    [manager GET:@"https://dojo.alphacamp.co/api/v1/courses" parameters:@{@"api_key":@"dd4f6237ea870fc06c9c2f5be80e9175494fba50",@"auth_token": [[NSUserDefaults standardUserDefaults] valueForKey:@"auth_token"]} success:^(AFHTTPRequestOperation *operation, id responseObject){
+    [manager GET:@"https://dojo.alphacamp.co/api/v1/courses" parameters:@{@"api_key":@"dd4f6237ea870fc06c9c2f5be80e9175494fba50",@"auth_token": [[NSUserDefaults standardUserDefaults] valueForKey:@"auth_token"]}  success:^(AFHTTPRequestOperation *operation, id responseObject){
+        NSLog(@"response: %@", responseObject);
         self.courses = responseObject[@"courses"];
         [self.tableView reloadData];
         [_refershControl endRefreshing];
     }
+     
          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"Error: %@", error);
          }];
@@ -65,7 +68,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return arrpress.count;
+    return self.courses.count;
 }
 
 /*

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65AA1A6B0003A11896478583 /* libPods-AlphaCamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70620D0D63403812C1A871BD /* libPods-AlphaCamp.a */; };
 		8416E5881B30059B00399C41 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416E5871B30059B00399C41 /* IntroViewController.m */; };
 		8416E58E1B30435700399C41 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416E58D1B30435700399C41 /* TableViewController.m */; };
 		844A9F4F1B38138500BA612D /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A9F4E1B38138500BA612D /* TabViewController.m */; };
@@ -77,7 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65AA1A6B0003A11896478583 /* libPods-AlphaCamp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,12 +7,14 @@
 //
 
 #import "IntroViewController.h"
-
+#import <AFNetworking.h>
 @interface IntroViewController ()
 {
     int changeNum;
     int groupNum;
+    
 }
+
 @end
 
 @implementation IntroViewController
@@ -21,6 +23,15 @@
     [super viewDidLoad];
     changeNum = 0;
     groupNum = 0;
+    
+//
+//    AFHTTPRequestOperationManager *manager =[AFHTTPRequestOperationManager manager];
+//    
+//    [manager GET:@"https://dojo.alphacamp.co/api/v1/teachers" parameters:@{@"api_key":@"dd4f6237ea870fc06c9c2f5be80e9175494fba50",@"auth_token": [[NSUserDefaults standardUserDefaults] valueForKey:@"auth_token"]}  success:^(AFHTTPRequestOperation *operation, id responseObject){
+//        NSLog(@"response: %@", responseObject);
+//        self.courses = [responseObject[@"courses"];
+    
+    
     
     // Do any additional setup after loading the view.
 //    arr1 = @[@1,@2,@3];

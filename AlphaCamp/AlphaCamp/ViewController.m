@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "NextViewController.h"
 #import <AFNetworking.h>
+
 @interface ViewController () {
     
     UIActivityIndicatorView *indicatorView;
@@ -20,6 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    
     indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     indicatorView.center = self.view.center;
     [self.view  addSubview:indicatorView];

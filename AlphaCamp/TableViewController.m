@@ -34,7 +34,8 @@
     }
     
 #pragma mark - Table view data source
-    
+
+
     - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
         
         // Return the number of sections.
@@ -44,7 +45,7 @@
     - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
         return 6;
     }
-    
+
     
     - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
         static NSString *CellIndentifier = @"CellIdentifier";

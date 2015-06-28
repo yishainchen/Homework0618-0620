@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import <Parse/Parse.h>
 @interface AppDelegate ()
 
 @end
@@ -16,6 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [Parse setApplicationId:@"qBSiBpxl43OMAm3rPxvIWFNHce9JIeFq9uoG6SBK"
+                  clientKey:@"DK68W5vDUzt9nSQrh25LazDwpYP2q9qz0TbhFLsq"];
+
     // Override point for customization after application launch.
     return YES;
 }

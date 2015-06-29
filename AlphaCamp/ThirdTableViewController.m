@@ -10,50 +10,49 @@
 #import <Parse/Parse.h>
 @interface ThirdTableViewController ()
 {
-    NSArray *arrayimage;
-    NSArray *arraylabel;
-    NSArray *arraydate;
-    NSArray *arraydetail;
+    NSMutableArray *arrayimage;
+    NSMutableArray *arraylabel;
+    NSMutableArray *arraydate;
+    NSMutableArray *arraydetail;
 }
 @end
 
 @implementation ThirdTableViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+   arrayimage =  [[NSMutableArray alloc]init];
+   arraylabel =  [[NSMutableArray alloc]init];
+   arraydate  =  [[NSMutableArray alloc]init];
+   arraydetail=  [[NSMutableArray alloc]init];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        PFFile *userImageFile = [objects valueForKey:@"image"];
-        // Do something with the returned PFObject in the gameScore variable.
-        [userImageFile getDataInBackgroundWithBlock:^(NSData *imgData , NSError *error) {
-            NSLog(@"%@",imgData);
-            
-        arrayimage = [UIImage imageWithData:imgData];
-        [self.tableView reloadData];
-    }];
         
+        [arraylabel addObjectsFromArray:objects];
+        [arraydate addObjectsFromArray:objects];
+        [arraydetail addObjectsFromArray:objects];
+        [self.tableView reloadData];
+        
+        
+        
+        PFFile *userImageFile = [objects valueForKey:@"image"];
+        [userImageFile getDataInBackgroundWithBlock:^(NSData *imgData , NSError *error) {
+            UIImage *imgview = [UIImage imageWithData:imgData];
+            [arrayimage addObject:imgview];
+            
+            
+            
+             }];
+//            
+//            
+//        arrayimage = [UIImage imageWithData:imgData];
+     
+            NSLog(@"count  =  %@",arrayimage);
+
                 }];
-    PFQuery *query1 = [PFQuery queryWithClassName:@"Event"];
-    [query1 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        // Do something with the returned PFObject in the gameScore variable.
-        arraylabel = [objects valueForKey:@"eventName"];
-        [self.tableView reloadData];
-    }];
-    
-    PFQuery *query2 = [PFQuery queryWithClassName:@"Event"];
-     [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        // Do something with the returned PFObject in the gameScore variable
-         arraydate = [objects valueForKey:@"dateString"];
-        [self.tableView reloadData];
-    }];
-    PFQuery *query3 = [PFQuery queryWithClassName:@"Event"];
-    [query3 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        // Do something with the returned PFObject in the gameScore variable.
-        arraydetail = [objects valueForKey:@"content"];
-        NSLog(@"%@",arraydetail);
-        [self.tableView reloadData];
-    }];
-}
+    }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -69,7 +68,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return arraylabel.count;
+    return arrayimage.count;
 }
 
 //
@@ -81,13 +80,13 @@
     iv.image = arrayimage[indexPath.row];
     
     UILabel *iv1 = (UILabel *)[cell viewWithTag:200];
-    iv1.text = arraylabel[indexPath.row];
+    iv1.text = arraylabel[indexPath.row][@"eventName"];
     
     UILabel *iv2 = (UILabel *)[cell viewWithTag:300];
-    iv2.text = arraydate[indexPath.row];
+    iv2.text = arraydate[indexPath.row][@"dateString"];
     
     UITextField *iv3 = (UITextField *)[cell viewWithTag:400];
-    iv3.text = arraydetail[indexPath.row];
+    iv3.text = arraydetail[indexPath.row][@"content"];
     
     
     return cell;

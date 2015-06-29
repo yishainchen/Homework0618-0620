@@ -28,31 +28,31 @@
    arraydetail=  [[NSMutableArray alloc]init];
     
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *arr, NSError *error) {
         
-        [arraylabel addObjectsFromArray:objects];
-        [arraydate addObjectsFromArray:objects];
-        [arraydetail addObjectsFromArray:objects];
-        [self.tableView reloadData];
+        [arraylabel  addObjectsFromArray:arr];
+        [arraydate addObjectsFromArray:arr];
+        [arraydetail addObjectsFromArray:arr];
         
-        
-        
-        PFFile *userImageFile = [objects valueForKey:@"image"];
-        [userImageFile getDataInBackgroundWithBlock:^(NSData *imgData , NSError *error) {
-            UIImage *imgview = [UIImage imageWithData:imgData];
-            [arrayimage addObject:imgview];
+        NSLog(@"count  =  %@",arrayimage);
+        for (PFObject *obj in arr) {
             
-            
-            
-             }];
-//            
-//            
-//        arrayimage = [UIImage imageWithData:imgData];
-     
-            NSLog(@"count  =  %@",arrayimage);
-
-                }];
-    }
+            PFFile *userImageFile = obj[@"image"];
+            [userImageFile getDataInBackgroundWithBlock:^(NSData *imgData , NSError *error) {
+                UIImage *img = [UIImage imageWithData:imgData];
+                if (img) {
+                    [arrayimage addObject:@"images-2"];
+                }
+                else {
+                    [arrayimage addObject:@"images-2"];
+                }
+                NSLog(@"count  =  %@",arrayimage);
+                [self.tableView reloadData];
+            }];
+        }
+    }];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -68,7 +68,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return arrayimage.count;
+    return arraylabel.count;
 }
 
 //
@@ -76,8 +76,8 @@
     static NSString *Cell = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cell forIndexPath:indexPath];
     
-    UIImageView *iv = (UIImageView *)[cell viewWithTag:100];// view -> UIImageView
-    iv.image = arrayimage[indexPath.row];
+//    UIImageView *iv = (UIImageView *)[cell viewWithTag:100];// view -> UIImageView
+//    iv.image = arrayimage[indexPath.row];
     
     UILabel *iv1 = (UILabel *)[cell viewWithTag:200];
     iv1.text = arraylabel[indexPath.row][@"eventName"];

@@ -14,6 +14,7 @@
     NSMutableArray *arraylabel;
     NSMutableArray *arraydate;
     NSMutableArray *arraydetail;
+    NSArray *eventArray;
 }
 @end
 
@@ -29,29 +30,41 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *arr, NSError *error) {
-        
-        [arraylabel  addObjectsFromArray:arr];
-        [arraydate addObjectsFromArray:arr];
-        [arraydetail addObjectsFromArray:arr];
-        
-        NSLog(@"count  =  %@",arrayimage);
-        for (PFObject *obj in arr) {
-            
-            PFFile *userImageFile = obj[@"image"];
-            [userImageFile getDataInBackgroundWithBlock:^(NSData *imgData , NSError *error) {
-                UIImage *img = [UIImage imageWithData:imgData];
-                if (img) {
-                    [arrayimage addObject:@"images-2"];
-                }
-                else {
-                    [arrayimage addObject:@"images-2"];
-                }
-                NSLog(@"count  =  %@",arrayimage);
-                [self.tableView reloadData];
-            }];
-        }
+        eventArray = arr;
+        [self.tableView reloadData];
     }];
-    
+//    }
+//     
+//        [arraylabel addObjectsFromArray:arr];
+//        [arraydate addObjectsFromArray:arr];
+//        [arraydetail addObjectsFromArray:arr];
+//        [self.tableView reloadData];
+//        __block NSInteger counter = 0;
+//        for (PFObject *obj in arr) {
+//            
+//            PFFile *userImageFile = obj[@"image"];
+//            [userImageFile getDataInBackgroundWithBlock:^(NSData *imgData , NSError *error) {
+//                UIImage *img = [UIImage imageWithData:imgData];
+//                
+//                if (img) {
+//                    [arrayimage addObject:img];
+//                }
+//
+//                else if (arraylabel.count > arrayimage.count) {
+//                [arrayimage addObject:[UIImage imageNamed:@"Kung"]];
+//                        
+//                        NSLog(@"%@",arrayimage);
+//                }
+//                counter ++;
+//                if (counter == arr.count) {
+//                    [self.tableView reloadData];
+//                }
+//            }
+//             ];
+//        }
+//
+//    }
+//     ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,81 +81,43 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return arraylabel.count;
+    return eventArray.count;
 }
 
 //
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *Cell = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cell forIndexPath:indexPath];
-    
-//    UIImageView *iv = (UIImageView *)[cell viewWithTag:100];// view -> UIImageView
+
+    PFObject *event = eventArray[indexPath.row];
+    UIImageView *iv = (UIImageView *)[cell viewWithTag:100];// view -> UIImageView
 //    iv.image = arrayimage[indexPath.row];
     
+    iv.image = nil;//不重複只用畫面
+    PFFile *imageData = event[@"image"];
+    [imageData getDataInBackgroundWithBlock:^(NSData *imgData , NSError *error) {
+        if (error == nil) {
+            iv.image = [UIImage imageWithData:imgData];
+        }
+    }];
+//    iv.image = event[@"image"];
+    
     UILabel *iv1 = (UILabel *)[cell viewWithTag:200];
-    iv1.text = arraylabel[indexPath.row][@"eventName"];
+//    iv1.text = arraylabel[indexPath.row][@"eventName"];
+    iv1.text = event[@"eventName"];
     
     UILabel *iv2 = (UILabel *)[cell viewWithTag:300];
-    iv2.text = arraydate[indexPath.row][@"dateString"];
+    iv2.text = event[@"dateString"];
+//    iv2.text = arraydate[indexPath.row][@"dateString"];
     
     UITextField *iv3 = (UITextField *)[cell viewWithTag:400];
-    iv3.text = arraydetail[indexPath.row][@"content"];
+    iv3.text = event[@"content"];
+//    iv3.text = arraydetail[indexPath.row][@"content"];
     
     
     return cell;
 }
 //
 
-
-
-
-//
-//    
-//
-//}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

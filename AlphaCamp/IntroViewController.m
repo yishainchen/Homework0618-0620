@@ -8,6 +8,7 @@
 
 #import "IntroViewController.h"
 #import <AFNetworking.h>
+#import "NextViewController.h"
 @interface IntroViewController ()
 {
     int changeNum;
@@ -123,6 +124,16 @@
       
   [self loadData:changeNum withGroup:groupNum];
    }
+- (IBAction)LogoutButton:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"isAutoLogin"];
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"thisUsername"];
+    [[NSUserDefaults standardUserDefaults] setValue:nil forKey:@"thisPassword"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NextViewController *nextVC = [self.storyboard instantiateViewControllerWithIdentifier:@"Autonlogin"];
+      [self presentViewController:nextVC animated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -8,8 +8,14 @@
 
 #import "TableViewController.h"
 #import "DetailTableViewController.h"
+#import <AFNetworking.h>
 @interface TableViewController ()
-
+{
+    NSArray *arr;
+    NSArray *arrdetail;
+    NSDictionary *dic;
+    NSDictionary *dicDetail;
+}
 @end
 
 @implementation TableViewController
@@ -18,16 +24,10 @@
         [super viewDidLoad];
         
         arr123 = [[NSArray alloc] initWithObjects:@"Pre-study Course", @"Week 1", @"Week 2", @"Week 3", @"Miscellaneout Topics", @"Week 4", nil];
-        
-        
-        // Uncomment the following line to preserve selection between presentations.
-        // self.clearsSelectionOnViewWillAppear = NO;
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-     
+    ;
+    [self loadCourses];
+   
     }
-    
     - (void)didReceiveMemoryWarning {
         [super didReceiveMemoryWarning];
         // Dispose of any resources that can be recreated.
@@ -41,7 +41,7 @@
         // Return the number of sections.
         return 1;
     }
-    
+
     - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
         return 6;
     }
@@ -71,8 +71,27 @@
         NSLog(@"%ld",(long)indexPath.row);
     }
 
+-(void) loadCourses {
+    AFHTTPRequestOperationManager *manager =[AFHTTPRequestOperationManager manager];
+    [manager GET:@"https://dojo.alphacamp.co/api/v1/courses/syllabus" parameters:@{@"api_key":@"dd4f6237ea870fc06c9c2f5be80e9175494fba50",@"auth_token": [[NSUserDefaults standardUserDefaults] valueForKey:@"auth_token"]}  success:^(AFHTTPRequestOperation *operation, id responseObject){
 
-
+        dic = responseObject[@"syllabus"];
+        dicDetail = dic[@"section"];
+        arr= dicDetail[@"name"];
+        
+        
+        
+        NSLog(@"count =  %@",arr);
+        
+        [self.tableView reloadData];
+      
+    }
+     
+         failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"Error: %@", error);
+         }];
+    
+}
 
     /*
      // Override to support conditional editing of the table view.
@@ -118,4 +137,8 @@
      }
      */
     
+- (IBAction)ActionRoll:(id)sender {
+   
+    
+}
     @end

@@ -9,6 +9,7 @@
 #import "NextViewController.h"
 #import "TabViewController.h"
 #import <AFNetworking.h>
+#import "AutoLogin.h"
 @interface NextViewController ()
 {
     NSDictionary *params;
@@ -40,22 +41,30 @@
 //
     params = @ {@"email" :self.userMail.text,@"password" :self.userPassword.text,@"api_key":@"dd4f6237ea870fc06c9c2f5be80e9175494fba50" };
     
-AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
 
-    
-[manager POST:@"https://dojo.alphacamp.co/api/v1/login" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:@"https://dojo.alphacamp.co/api/v1/login" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
     NSLog(@"JSON: %@", responseObject);{
     [[NSUserDefaults standardUserDefaults] setValue:responseObject
      [@"auth_token"] forKey:@"auth_token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    [[NSUserDefaults standardUserDefaults] setValue:@YES forKey:@"isAutoLogin"];
+    [[NSUserDefaults standardUserDefaults] setValue:self.userMail.text forKey:@"thisUsername"];
+    [[NSUserDefaults standardUserDefaults] setValue: self.userPassword.text forKey:@"thisPassword"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    AutoLogin =@"YES";
+        
     TabViewController *tabView = [self.storyboard instantiateViewControllerWithIdentifier:@"TabView"];
-    [self presentViewController:tabView animated:YES completion:nil];
+    
+        [self presentViewController:tabView animated:YES completion:nil];
     }
 }
       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
           NSLog(@"Error: %@", error);
           UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Hey" message:@"Wrong Password" preferredStyle:UIAlertControllerStyleAlert];
           [self presentViewController:alert animated:YES completion:nil];
+          
           UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertViewStyleDefault handler:^(UIAlertAction *action) {
               [alert dismissViewControllerAnimated:YES completion:nil];
               

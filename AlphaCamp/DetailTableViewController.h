@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailTableViewController : UITableViewController
+@interface DetailTableViewController : UITableViewController <UIGestureRecognizerDelegate>
 
 {
 //    NSArray *arrDetail;

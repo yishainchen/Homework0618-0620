@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3EAF05AC27FB437DF2D54A4D /* libPods-AlphaCamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 70620D0D63403812C1A871BD /* libPods-AlphaCamp.a */; };
+		8400DF441B42D5AE0031D326 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8400DF431B42D5AE0031D326 /* WebViewController.m */; };
 		8416E5881B30059B00399C41 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416E5871B30059B00399C41 /* IntroViewController.m */; };
 		8416E58E1B30435700399C41 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416E58D1B30435700399C41 /* TableViewController.m */; };
 		844A9F4F1B38138500BA612D /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A9F4E1B38138500BA612D /* TabViewController.m */; };
@@ -25,6 +26,7 @@
 		8479E6661B29DEEE00679F09 /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8479E6651B29DEEE00679F09 /* NextViewController.m */; };
 		84ADFD1B1B36D69600649E7C /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADFD1A1B36D69600649E7C /* DetailTableViewController.m */; };
 		84F3F9481B3E81B600879069 /* ThirdTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3F9471B3E81B600879069 /* ThirdTableViewController.m */; };
+		84F3F9CA1B42872A00879069 /* AutoLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F3F9C91B42872A00879069 /* AutoLogin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		52DB2F03E6B54346CF37C4AA /* Pods-AlphaCamp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlphaCamp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlphaCamp/Pods-AlphaCamp.debug.xcconfig"; sourceTree = "<group>"; };
 		70620D0D63403812C1A871BD /* libPods-AlphaCamp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AlphaCamp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8400DF421B42D5AE0031D326 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		8400DF431B42D5AE0031D326 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		8416E5861B30059B00399C41 /* IntroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroViewController.h; path = ../IntroViewController.h; sourceTree = "<group>"; };
 		8416E5871B30059B00399C41 /* IntroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IntroViewController.m; path = ../IntroViewController.m; sourceTree = "<group>"; };
 		8416E58C1B30435700399C41 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = ../TableViewController.h; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 		84ADFD1A1B36D69600649E7C /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailTableViewController.m; path = ../DetailTableViewController.m; sourceTree = "<group>"; };
 		84F3F9461B3E81B600879069 /* ThirdTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdTableViewController.h; sourceTree = "<group>"; };
 		84F3F9471B3E81B600879069 /* ThirdTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdTableViewController.m; sourceTree = "<group>"; };
+		84F3F9C81B42870F00879069 /* AutoLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLogin.h; sourceTree = "<group>"; };
+		84F3F9C91B42872A00879069 /* AutoLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoLogin.m; sourceTree = "<group>"; };
 		95AEBD39DD18FDA2A7358CE0 /* Pods-AlphaCamp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlphaCamp.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlphaCamp/Pods-AlphaCamp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +121,10 @@
 		847754101B21B18500426283 = {
 			isa = PBXGroup;
 			children = (
+				8400DF421B42D5AE0031D326 /* WebViewController.h */,
+				8400DF431B42D5AE0031D326 /* WebViewController.m */,
+				84F3F9C81B42870F00879069 /* AutoLogin.h */,
+				84F3F9C91B42872A00879069 /* AutoLogin.m */,
 				84F3F9461B3E81B600879069 /* ThirdTableViewController.h */,
 				84F3F9471B3E81B600879069 /* ThirdTableViewController.m */,
 				8477541B1B21B18500426283 /* AlphaCamp */,
@@ -336,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84ADFD1B1B36D69600649E7C /* DetailTableViewController.m in Sources */,
+				8400DF441B42D5AE0031D326 /* WebViewController.m in Sources */,
 				8416E58E1B30435700399C41 /* TableViewController.m in Sources */,
 				8479E6661B29DEEE00679F09 /* NextViewController.m in Sources */,
 				847754221B21B18500426283 /* AppDelegate.m in Sources */,
@@ -347,6 +358,7 @@
 				847754281B21B18500426283 /* ViewController.m in Sources */,
 				8477541F1B21B18500426283 /* main.m in Sources */,
 				8478F98B1B2C0212008FA182 /* CodeViewController.m in Sources */,
+				84F3F9CA1B42872A00879069 /* AutoLogin.m in Sources */,
 				8416E5881B30059B00399C41 /* IntroViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

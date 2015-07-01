@@ -15,4 +15,8 @@
     NSArray *arr123;
 
 }
+
+- (IBAction)ActionRoll:(id)sender;
+
+
 @end

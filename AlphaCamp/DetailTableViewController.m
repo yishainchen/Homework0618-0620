@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
     //寫死的資料
 //    arrDetail = @[ @[@"TreeHouse(iOS)"],
 //                   @[@"Software Develope Life Cycle",@"Software System Architure",@"User Story And Wireframe"],
@@ -25,7 +26,12 @@
 //                   @[@"Objective C-Class/Object",@"AutoLayout Part II",@"Property & Delegate"],
 //                   @[@"ViewController life & ARC",@"UITableView",@"Supplementation of MVC"],
 //                   @[@"資料儲存"]];
-//    
+//
+   
+    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
+    [tapGR setDelegate:self];
+    [self.view addGestureRecognizer:tapGR];
+    
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(loadCourses) forControlEvents:UIControlEventValueChanged];
 //    arrpress= [[NSArray alloc] initWithArray:arrDetail[self.Num]];
@@ -118,7 +124,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -126,6 +132,9 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 
+- (void)hideKeyboard
+{
+    [self.view endEditing:YES];
+}
 @end

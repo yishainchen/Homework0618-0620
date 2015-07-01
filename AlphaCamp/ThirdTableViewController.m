@@ -8,6 +8,7 @@
 
 #import "ThirdTableViewController.h"
 #import <Parse/Parse.h>
+#import "WebViewController.h"
 @interface ThirdTableViewController ()
 {
     NSMutableArray *arrayimage;
@@ -15,56 +16,29 @@
     NSMutableArray *arraydate;
     NSMutableArray *arraydetail;
     NSArray *eventArray;
+   
+    int Number;
 }
+@property  UIButton *webButton;
+
 @end
 
 @implementation ThirdTableViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-   arrayimage =  [[NSMutableArray alloc]init];
-   arraylabel =  [[NSMutableArray alloc]init];
-   arraydate  =  [[NSMutableArray alloc]init];
-   arraydetail=  [[NSMutableArray alloc]init];
     
+//   arrayimage =  [[NSMutableArray alloc]init];
+//   arraylabel =  [[NSMutableArray alloc]init];
+//   arraydate  =  [[NSMutableArray alloc]init];
+//   arraydetail=  [[NSMutableArray alloc]init];
+//    
     PFQuery *query = [PFQuery queryWithClassName:@"Event"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *arr, NSError *error) {
         eventArray = arr;
         [self.tableView reloadData];
+  
     }];
-//    }
-//     
-//        [arraylabel addObjectsFromArray:arr];
-//        [arraydate addObjectsFromArray:arr];
-//        [arraydetail addObjectsFromArray:arr];
-//        [self.tableView reloadData];
-//        __block NSInteger counter = 0;
-//        for (PFObject *obj in arr) {
-//            
-//            PFFile *userImageFile = obj[@"image"];
-//            [userImageFile getDataInBackgroundWithBlock:^(NSData *imgData , NSError *error) {
-//                UIImage *img = [UIImage imageWithData:imgData];
-//                
-//                if (img) {
-//                    [arrayimage addObject:img];
-//                }
-//
-//                else if (arraylabel.count > arrayimage.count) {
-//                [arrayimage addObject:[UIImage imageNamed:@"Kung"]];
-//                        
-//                        NSLog(@"%@",arrayimage);
-//                }
-//                counter ++;
-//                if (counter == arr.count) {
-//                    [self.tableView reloadData];
-//                }
-//            }
-//             ];
-//        }
-//
-//    }
-//     ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,21 +64,26 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:Cell forIndexPath:indexPath];
 
     PFObject *event = eventArray[indexPath.row];
+    
     UIImageView *iv = (UIImageView *)[cell viewWithTag:100];// view -> UIImageView
 //    iv.image = arrayimage[indexPath.row];
     
-    iv.image = nil;//不重複只用畫面
+    iv.image = nil;//不重複使用畫面
     PFFile *imageData = event[@"image"];
     [imageData getDataInBackgroundWithBlock:^(NSData *imgData , NSError *error) {
         if (error == nil) {
             iv.image = [UIImage imageWithData:imgData];
+            iv.backgroundColor = [UIColor clearColor];
+        }
+        else {
+
         }
     }];
-//    iv.image = event[@"image"];
     
     UILabel *iv1 = (UILabel *)[cell viewWithTag:200];
 //    iv1.text = arraylabel[indexPath.row][@"eventName"];
     iv1.text = event[@"eventName"];
+    NSLog(@"%@",iv1.text);
     
     UILabel *iv2 = (UILabel *)[cell viewWithTag:300];
     iv2.text = event[@"dateString"];
@@ -114,10 +93,28 @@
     iv3.text = event[@"content"];
 //    iv3.text = arraydetail[indexPath.row][@"content"];
     
+//    _webButton = (UIButton *)[cell viewWithTag:500];
+    Number = indexPath.row;
     
+    UIButton *iv4 = (UIButton *)[cell viewWithTag:500];
+//    [iv4 addTarget:self action:@selector(move:) forControlEvents:UIControlEventTouchUpInside];
+    [iv4 addTarget:self action:@selector(move:) forControlEvents:UIControlEventTouchUpInside];
+//    iv4.tag = indexPath.row;
+//    
+    NSLog(@"%d",Number);
     return cell;
+   
 }
 //
-
-
+-(void)move:(UIButton *)button {
+//   _webArray[_webButton.tag]
+    NSLog(@"press");
+    [self performSegueWithIdentifier:@"sean" sender:self];
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+   WebViewController *web = segue.destinationViewController;
+   web.Num = Number;
+   NSLog(@"prepare  %d",web.Num);
+}
 @end

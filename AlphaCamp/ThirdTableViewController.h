@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WebViewController.h"
 @interface ThirdTableViewController : UITableViewController
-
+-(void)move:(UIButton *)button;
 @end

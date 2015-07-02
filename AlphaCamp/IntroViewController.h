@@ -14,16 +14,24 @@
     NSDictionary *intro2;
     NSDictionary *intro3;
     NSDictionary *intro4;
+    NSDictionary *intro5;
+    NSDictionary *intro6;
     
     NSDictionary *Teacher1;
     NSDictionary *Teacher2;
     NSDictionary *Teacher3;
-    
-    
+    NSDictionary *Teacher4;
+    NSDictionary *Teacher5;
+    NSDictionary *Teacher6;
     
     NSDictionary *Member1;
     NSDictionary *Member2;
     NSDictionary *Member3;
+    NSDictionary *Member4;
+    NSDictionary *Member5;
+    NSDictionary *Member6;
+    NSDictionary *Member7;
+  
     
     NSArray *Arrcount;
     

@@ -12,6 +12,7 @@
 		8416E5881B30059B00399C41 /* IntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416E5871B30059B00399C41 /* IntroViewController.m */; };
 		8416E58E1B30435700399C41 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416E58D1B30435700399C41 /* TableViewController.m */; };
 		844A9F4F1B38138500BA612D /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A9F4E1B38138500BA612D /* TabViewController.m */; };
+		846B9EAD1B4826AD006B61A8 /* BlogWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846B9EAC1B4826AD006B61A8 /* BlogWebViewController.m */; };
 		8477541F1B21B18500426283 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8477541E1B21B18500426283 /* main.m */; };
 		847754221B21B18500426283 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847754211B21B18500426283 /* AppDelegate.m */; };
 		847754251B21B18500426283 /* AlphaCamp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 847754231B21B18500426283 /* AlphaCamp.xcdatamodeld */; };
@@ -50,6 +51,8 @@
 		8416E58D1B30435700399C41 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = ../TableViewController.m; sourceTree = "<group>"; };
 		844A9F4D1B38138500BA612D /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabViewController.h; path = ../TabViewController.h; sourceTree = "<group>"; };
 		844A9F4E1B38138500BA612D /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabViewController.m; path = ../TabViewController.m; sourceTree = "<group>"; };
+		846B9EAB1B4826AD006B61A8 /* BlogWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogWebViewController.h; sourceTree = "<group>"; };
+		846B9EAC1B4826AD006B61A8 /* BlogWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogWebViewController.m; sourceTree = "<group>"; };
 		847754191B21B18500426283 /* AlphaCamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlphaCamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8477541D1B21B18500426283 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8477541E1B21B18500426283 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -121,6 +124,8 @@
 		847754101B21B18500426283 = {
 			isa = PBXGroup;
 			children = (
+				846B9EAB1B4826AD006B61A8 /* BlogWebViewController.h */,
+				846B9EAC1B4826AD006B61A8 /* BlogWebViewController.m */,
 				8400DF421B42D5AE0031D326 /* WebViewController.h */,
 				8400DF431B42D5AE0031D326 /* WebViewController.m */,
 				84F3F9C81B42870F00879069 /* AutoLogin.h */,
@@ -348,6 +353,7 @@
 				84ADFD1B1B36D69600649E7C /* DetailTableViewController.m in Sources */,
 				8400DF441B42D5AE0031D326 /* WebViewController.m in Sources */,
 				8416E58E1B30435700399C41 /* TableViewController.m in Sources */,
+				846B9EAD1B4826AD006B61A8 /* BlogWebViewController.m in Sources */,
 				8479E6661B29DEEE00679F09 /* NextViewController.m in Sources */,
 				847754221B21B18500426283 /* AppDelegate.m in Sources */,
 				847754251B21B18500426283 /* AlphaCamp.xcdatamodeld in Sources */,

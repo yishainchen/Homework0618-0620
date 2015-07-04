@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="VSk-MH-9z0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eCm-YK-Yba">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -300,6 +300,33 @@
             </objects>
             <point key="canvasLocation" x="2932" y="326"/>
         </scene>
+        <!--Blog Web View Controller-->
+        <scene sceneID="GRg-7v-DHa">
+            <objects>
+                <viewController storyboardIdentifier="BlogView" id="hBA-oK-Gx3" customClass="BlogWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fs2-WP-vqn"/>
+                        <viewControllerLayoutGuide type="bottom" id="IM6-n1-Jmg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MpL-Ai-OiV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dmI-HF-1O8">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="blogWebView" destination="dmI-HF-1O8" id="1tk-f1-d5O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Edp-aQ-hSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2550" y="-389"/>
+        </scene>
         <!--AboutAC-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -337,7 +364,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AB-ta-H3h">
-                                        <rect key="frame" x="20" y="317" width="60" height="30"/>
+                                        <rect key="frame" x="64" y="437" width="60" height="30"/>
                                         <color key="backgroundColor" red="0.99215686274509807" green="0.062745098039215685" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="0Q7-Im-Xko"/>
@@ -362,16 +389,37 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftJ-as-d1T">
+                                        <rect key="frame" x="202" y="437" width="65" height="30"/>
+                                        <color key="backgroundColor" red="0.99215686270000003" green="0.062745098040000002" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Bhh-wa-OOc"/>
+                                            <constraint firstAttribute="width" constant="65" id="oYa-cv-Q4G"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <state key="normal" title="AC部落格">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnACWebView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NDW-DD-bdv"/>
+                                            <segue destination="hBA-oK-Gx3" kind="modal" id="uOX-Pf-IYY"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottomMargin" secondItem="0AB-ta-H3h" secondAttribute="bottom" constant="164" id="Gpb-uW-KbF"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="ftJ-as-d1T" secondAttribute="trailing" constant="47" id="Afx-KN-85P"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="0AB-ta-H3h" secondAttribute="bottom" constant="44" id="Gpb-uW-KbF"/>
                                     <constraint firstItem="wdk-iw-I8L" firstAttribute="leading" secondItem="Awu-Ql-FFD" secondAttribute="leadingMargin" constant="12" id="LYB-0m-3Fz"/>
-                                    <constraint firstItem="0AB-ta-H3h" firstAttribute="leading" secondItem="Awu-Ql-FFD" secondAttribute="leadingMargin" constant="12" id="Y5u-qh-Ra8"/>
+                                    <constraint firstItem="ftJ-as-d1T" firstAttribute="leading" secondItem="0AB-ta-H3h" secondAttribute="trailing" constant="78" id="XZM-f4-jl0"/>
+                                    <constraint firstItem="0AB-ta-H3h" firstAttribute="leading" secondItem="Awu-Ql-FFD" secondAttribute="leadingMargin" constant="56" id="Y5u-qh-Ra8"/>
                                     <constraint firstItem="wdk-iw-I8L" firstAttribute="top" secondItem="Awu-Ql-FFD" secondAttribute="topMargin" constant="77" id="Yvm-9A-iIA"/>
-                                    <constraint firstItem="0AB-ta-H3h" firstAttribute="top" secondItem="zSL-pW-fjd" secondAttribute="bottom" constant="25" id="arG-F3-Vsx"/>
+                                    <constraint firstItem="ftJ-as-d1T" firstAttribute="top" secondItem="zSL-pW-fjd" secondAttribute="bottom" constant="145" id="ZaU-qM-90s"/>
+                                    <constraint firstItem="0AB-ta-H3h" firstAttribute="top" secondItem="zSL-pW-fjd" secondAttribute="bottom" constant="145" id="arG-F3-Vsx"/>
                                     <constraint firstItem="1oq-5x-mXf" firstAttribute="top" secondItem="wdk-iw-I8L" secondAttribute="bottom" constant="30" id="d02-VO-sRF"/>
                                     <constraint firstItem="zSL-pW-fjd" firstAttribute="leading" secondItem="Awu-Ql-FFD" secondAttribute="leadingMargin" constant="12" id="dE3-B3-WKH"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="ftJ-as-d1T" secondAttribute="bottom" constant="44" id="uss-08-hk9"/>
                                     <constraint firstItem="1oq-5x-mXf" firstAttribute="leading" secondItem="Awu-Ql-FFD" secondAttribute="leadingMargin" constant="12" id="xPS-za-rLY"/>
                                 </constraints>
                             </view>
@@ -500,11 +548,13 @@
             </objects>
             <point key="canvasLocation" x="1480" y="326"/>
         </scene>
-        <!--AlphaAC-->
+        <!--AboutAC-->
         <scene sceneID="XAI-iN-kp4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eCm-YK-Yba" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="AlphaAC" id="wLh-7V-rLJ"/>
+                    <tabBarItem key="tabBarItem" title="AboutAC" image="picAC" id="wLh-7V-rLJ">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OZt-Ma-SlH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -668,6 +718,7 @@
     <resources>
         <image name="Screen" width="273" height="78"/>
         <image name="Screen Shot" width="202" height="49"/>
+        <image name="picAC" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

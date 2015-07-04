@@ -9,6 +9,7 @@
 #import "IntroViewController.h"
 #import <AFNetworking.h>
 #import "NextViewController.h"
+#import "BlogWebViewController.h"
 @interface IntroViewController ()
 {
     int changeNum;
@@ -140,6 +141,15 @@
     
 [self loadData:changeNum withGroup:groupNum];
 }
+
+- (IBAction)btnACWebView:(id)sender {
+    
+    BlogWebViewController *blogVC = [self.storyboard instantiateViewControllerWithIdentifier:@"BlogView"];
+    [self presentViewController:blogVC animated:YES completion:nil];
+}
+
+
+
 - (IBAction)clicked:(id)sender{
     
     
@@ -194,10 +204,5 @@
     }
         
 }
-
-
-
-
-
 
 @end

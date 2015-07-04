@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class WebViewController;
+@protocol Webviewdelegate <NSObject>
+-(void)passNum:(WebViewController *)webView;
+@required
+
+@end
 
 @interface WebViewController : UIViewController
 

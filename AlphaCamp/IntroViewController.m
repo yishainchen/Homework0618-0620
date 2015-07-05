@@ -196,7 +196,7 @@
     NSURL *url = [NSURL URLWithString:@"https://www.alphacamp.co"];
     NSURLRequest *request  = [NSURLRequest requestWithURL:url];
 //    UIImage *image = [UIImage imageNamed:@"Line"];
-    NSArray *array = @[@"哭哭",request];
+    NSArray *array = @[@"https://www.alphacamp.co",request];
     LineActivity *line = [[LineActivity alloc ]init];
     UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:array   applicationActivities:@[line]];
     controller.excludedActivityTypes = @[UIActivityTypePostToFacebook];

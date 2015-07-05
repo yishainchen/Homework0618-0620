@@ -7,7 +7,7 @@
 //
 
 #import "BlogWebViewController.h"
-
+#import "IntroViewController.h"
 @interface BlogWebViewController ()
 
 @end
@@ -27,6 +27,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)btnBack:(id)sender {
+    IntroViewController *intro = [self.storyboard instantiateViewControllerWithIdentifier:@"Auto"];
+    [self presentViewController:intro animated:YES completion:nil];
+    
 }
 
 /*

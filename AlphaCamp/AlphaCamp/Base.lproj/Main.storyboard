@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qwf-qq-xId">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="VSk-MH-9z0">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -327,9 +327,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sn-pQ-nlz">
+                                <rect key="frame" x="16" y="13" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITG-rZ-tIX">
+                                <rect key="frame" x="0.0" y="-1" width="320" height="44"/>
+                                <items>
+                                    <navigationItem id="iOd-Qy-dux">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="njj-nl-3id">
+                                            <connections>
+                                                <action selector="btnBack:" destination="hBA-oK-Gx3" id="ff3-fi-FWz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="XcK-4m-Mr9"/>
                     <connections>
                         <outlet property="blogWebView" destination="dmI-HF-1O8" id="1tk-f1-d5O"/>
                     </connections>
@@ -559,11 +578,11 @@
             </objects>
             <point key="canvasLocation" x="1480" y="326"/>
         </scene>
-        <!--AboutAC-->
+        <!--Navigation Controller-->
         <scene sceneID="XAI-iN-kp4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eCm-YK-Yba" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="AboutAC" image="picAC" id="wLh-7V-rLJ">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="wLh-7V-rLJ">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -685,11 +704,11 @@
             </objects>
             <point key="canvasLocation" x="1989" y="1865"/>
         </scene>
-        <!--Class-->
+        <!--Navigation Controller-->
         <scene sceneID="VkM-7M-BMA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pAp-6Q-Xo5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Class" id="U3y-Kq-E64"/>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="U3y-Kq-E64"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n6q-hf-wOS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -704,11 +723,11 @@
             </objects>
             <point key="canvasLocation" x="2538" y="996"/>
         </scene>
-        <!--Event-->
+        <!--Navigation Controller-->
         <scene sceneID="hME-Lh-nSb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zfs-L3-hJS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Event" id="rwe-PZ-N6L">
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="rwe-PZ-N6L">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -729,7 +748,6 @@
     <resources>
         <image name="Screen" width="273" height="78"/>
         <image name="Screen Shot" width="202" height="49"/>
-        <image name="picAC" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eCm-YK-Yba">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="qwf-qq-xId">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -259,9 +259,19 @@
                                 <rect key="frame" x="83" y="119" width="154" height="137"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="154" id="Pfo-vc-ZSU"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="137" id="eTf-ka-kBs"/>
+                                    <constraint firstAttribute="height" constant="137" id="eTf-ka-kBs"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOy-Pj-9or">
+                                <rect key="frame" x="83" y="123" width="154" height="129"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareInfo:" destination="qwf-qq-xId" eventType="touchUpInside" id="Mtv-XX-buX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -284,6 +294,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MBq-l8-PNy">
+                        <nil key="title"/>
                         <barButtonItem key="rightBarButtonItem" title="Logout&gt;" id="SUU-cq-5VR">
                             <connections>
                                 <action selector="LogoutButton:" destination="qwf-qq-xId" id="mHo-WA-kS8"/>

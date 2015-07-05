@@ -18,6 +18,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [Parse setApplicationId:@"qBSiBpxl43OMAm3rPxvIWFNHce9JIeFq9uoG6SBK"
                   clientKey:@"DK68W5vDUzt9nSQrh25LazDwpYP2q9qz0TbhFLsq"];
+    
+    PFObject *people = [PFObject objectWithClassName:@"People"];
+    people[@"Name"] = @"Bernard";
+    people[@"Description"] = @"ALPHA Camp 創辦人。TMI 駐場創業家，曾任 Yahoo！亞太區廣告業務總監。美國MIT大學創業論壇mentor。";
+    NSData *imageData = UIImagePNGRepresentation([UIImage imageNamed:@"bernard"]);
+    PFFile *imageFile = [PFFile fileWithName:@"image.png" data:imageData];
+    people[@"imageName"] = @"My trip to Hawaii!";
+    people[@"imageFile"] = imageFile;
+    [people saveInBackground];
 
     // Override point for customization after application launch.
     return YES;

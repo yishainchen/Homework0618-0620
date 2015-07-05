@@ -10,6 +10,7 @@
 #import <AFNetworking.h>
 #import "NextViewController.h"
 #import "BlogWebViewController.h"
+#import "LineActivity.h"
 @interface IntroViewController ()
 {
     int changeNum;
@@ -23,6 +24,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    
     changeNum = 0;
     groupNum = 0;
     
@@ -186,6 +191,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)shareInfo:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"https://www.alphacamp.co"];
+    NSURLRequest *request  = [NSURLRequest requestWithURL:url];
+//    UIImage *image = [UIImage imageNamed:@"Line"];
+    NSArray *array = @[@"哭哭",request];
+    LineActivity *line = [[LineActivity alloc ]init];
+    UIActivityViewController *controller = [[UIActivityViewController alloc] initWithActivityItems:array   applicationActivities:@[line]];
+    controller.excludedActivityTypes = @[UIActivityTypePostToFacebook];
+    
+    [self presentViewController:controller animated:YES completion:nil];
+    
+    
+}
 
 - (IBAction)setmentedControlValueChanged:(id)sender {
     UISegmentedControl *segmentedControl = sender;
